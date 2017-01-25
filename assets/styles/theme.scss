@@ -2,9 +2,11 @@
 $row-border-color: $black;
 $background-color: $white;
 $font-color: $black;
+$chalk-text-color: $white;
 
 body {
   background-color: $background-color;
+  background-image: url('../images/woodTexture.jpg');
   color: $font-color;
 }
 
@@ -14,19 +16,14 @@ body {
 }
 
 .main {
+  background-image: url('../images/bluePrint.jpg');
   display: flex;
   height: 300px;
   flex-wrap: wrap;
 }
 
-.game-grid {
-  display: flex;
-  flex-wrap: wrap;
-  order: 2;
-  width: 60%;
-  max-height: 300;
-  margin: 0 auto;
-  justify-content: space-between;
+.chalk-text {
+  color: $chalk-text-color;
 }
 
 .space {
@@ -35,22 +32,6 @@ body {
 }
 .space-mid {
   width: 34%;
-  border: 1px solid $black;
-}
-
-.player-1-stats {
-  display: flex;
-  order: 1;
-  width: 18%;
-  height: auto;
-  border: 1px solid $black;
-}
-
-.player-2-stats {
-  display: flex;
-  order: 3;
-  width: 18%;
-  height: auto;
   border: 1px solid $black;
 }
 
