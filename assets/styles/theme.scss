@@ -15,11 +15,18 @@ body {
   height: 40px;
 }
 
+.navbar {
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
 .main {
-  background-image: url('../images/bluePrint.jpg');
   display: flex;
-  height: 300px;
   flex-wrap: wrap;
+  background-image: url('../images/bluePrint.jpg');
+  width: 80%;
+  margin: 0 auto;
 }
 
 .chalk-text {
