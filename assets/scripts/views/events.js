@@ -2,6 +2,9 @@
 
 const getFormFields = require(`../../../lib/get-form-fields`);
 const store = require('../store.js');
+const api = require('../portfolio/api.js');
+const ui = require('../portfolio/ui.js');
+const viewUi = require('./ui.js');
 
 const onURLChange = function (event) {
   let newView = event.newURL.split('');
@@ -12,8 +15,19 @@ const onURLChange = function (event) {
       let tempView = '';
       for(let j = i; j < newView.length; j++) {
         tempView += newView[j];
+        if(newView[j+1] === '/'){
+          break;
+        }
       }
       newView = tempView;
+      if(newView === '#portfolio')
+      {
+        api.loadImages()
+          .then(ui.getImagesSuccess)
+          .then(
+          viewUi.displayImages)
+          .catch(ui.failure);
+      }
       break;
     }
   }
@@ -23,6 +37,9 @@ const onURLChange = function (event) {
       let tempView = '';
       for(let j = i; j < oldView.length; j++) {
         tempView += oldView[j];
+        if(oldView[j+1] === '/'){
+          break;
+        }
       }
       oldView = tempView;
       break;
@@ -48,8 +65,19 @@ const addHandlers = () => {
       let tempView = '';
       for(let j = i; j < view.length; j++) {
         tempView += view[j];
+        if(view[j+1] === '/'){
+          break;
+        }
       }
       $(tempView).show();
+      if(tempView === '#portfolio')
+      {
+        api.loadImages()
+          .then(ui.getImagesSuccess)
+          .then(
+          viewUi.displayImages)
+          .catch(ui.failure);
+      }
       break;
     }
   }

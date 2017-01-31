@@ -12,6 +12,13 @@ const createNewImage = (data) =>
     }
   });
 
+  const loadImages = (data) =>
+  $.ajax({
+    url: config.host+'/images',
+    method: 'GET',
+  });
+
 module.exports = {
   createNewImage,
+  loadImages,
 };
