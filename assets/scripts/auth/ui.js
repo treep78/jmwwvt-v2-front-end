@@ -24,8 +24,6 @@ const signInSuccess = function(data)
   $('#sign-in-button').html("<form id='sign-out'><input type='submit' name='submit' value='Sign Out!' class='btn btn-primary btn-lg'></form>");
   $('#sign-up-button').html('<button type="button" class="btn btn-primary btn-lg" data-toggle="modal"data-target="#change-password-modal">Change Password</button>');
   $('#account-menu').text(store.user.email.split('@')[0]+"'s Account");
-  $('#new-game-buttons').show();
-
 };
 
 const changePasswordSuccess = function(data)

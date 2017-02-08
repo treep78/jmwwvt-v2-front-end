@@ -53,7 +53,8 @@
 
       <div class="main">
         <div id="about" class="chalk-text content">
-          about
+          <h1>About Us</h1>
+          <h3>Providing quality workmanship for your home improvement needs. We will work with you to ensure all your needs and expectations are met. No job too small.</h3>
         </div>
         <div id="portfolio" class="content">
           <div id="portfolioImages">
@@ -61,22 +62,62 @@
           <div id="categories">
 
           </div>
-          <form id="newImage">
-              <legend class="chalk-text">New credentials</legend>
-              <input type="text" name="image[title]" placeholder="Title">
-              <input type="text" name="image[category]" placeholder="Category">
-              <input type="text" name="image[description]" placeholder="Description">
-              <input type="text" name="image[link]" placeholder="Link">
-              <button type="submit" class="btn btn-xs btn-default">Submit</button>
-          </form>
+          <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#newImageModal">
+          New Image
+          </button>
         </div>
         <div id="contact" class="chalk-text content">
-          contact
+          <h1>John McClure</h1>
+          <h3>Phone: (978) 868-5010</h3>
+          <h3>eMail: @jmwoodworkingvt</h3>
+          <h3>Address: 7 Marble St
+            Brandon, Vermont
+          </h3>
         </div>
-
       </div>
 
+      <!-- Start New Image Modal -->
+      <div class="modal fade" id="newImageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+              <h3>New Image</h3>
+              <form id="newImage">
+                  <h2 class="chalk-text">New Image</h2>
+                  <input type="text" name="image[title]" placeholder="Title" class="input-field">
+                  <input type="text" name="image[category]" placeholder="Category" class="input-field">
+                  <input type="text" name="image[link]" placeholder="Link" class="input-field">
+                  <input type="text" name="image[description]" placeholder="Description"  class="text-box">
+                  <button type="submit" class="btn btn-xs btn-default">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Stop Modal -->
 
+      <!-- Start Image Details Modal -->
+      <div class="modal fade" id="imageDetailsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+              <div id="imageDeailsModalBody">
+
+              </div>
+              <form id="changeImageForm">
+                <button type="submit" class="btn btn-xs btn-default">Save</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Stop Modal -->
 
       <!-- Start Modal -->
       <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
