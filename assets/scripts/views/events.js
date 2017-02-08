@@ -60,6 +60,13 @@ const saveEditedImage = function(event) {
     .catch(ui.failure);
 };
 
+const deleteSelectedImage = function() {
+  event.preventDefault();
+  viewApi.deleteImage()
+    .then(viewUi.deleteImageSuccess)
+    .catch(ui.failure);
+}
+
 const addHandlers = () => {
 
   $(document).on('click', '.portfolioImage', function(){
@@ -69,8 +76,9 @@ const addHandlers = () => {
     for(let image in store.portfolioImages){
       if(store.portfolioImages[image].id === this.id)
       {
+        store.currentImage = store.portfolioImages[image];
         if(store.user !== undefined){
-          $('#changeImageForm').show();
+          $('#deleteImage').show();
           let content = '<h2>'+
               'Title: '+
               '<input type="text" name="image[title]" value="'+store.portfolioImages[image].title+'" class="input-field">'+
@@ -89,13 +97,13 @@ const addHandlers = () => {
               '<textarea type="text" name="image[description]" class="text-box">'+
               store.portfolioImages[image].description+
               '</textarea>'+
-              '<button type="submit" class="btn btn-xs btn-default">Save</button>'+
-              '<input type="hidden" value="'+store.portfolioImages[image].id+'" name="image[id]" />';
+              '<input type="hidden" value="'+store.portfolioImages[image].id+'" name="image[id]" />'+
+              '<button type="submit" class="btn btn-xs btn-primary">Save</button>';
               $('#imageDeailsModalBody').empty();
               $('#changeImageForm').empty();
               $('#changeImageForm').append(content);
         } else {
-          $('#changeImageForm').hide();
+          $('#deleteImage').hide();
           let content = '<div class="modal-body">'+
             '<h2>'+store.portfolioImages[image].title+'</h2>'+
             '<br>'+
@@ -112,10 +120,8 @@ const addHandlers = () => {
     }
   });
 
-  //hide image details modal edit form on page loadImages
-  $('#changeImageForm').hide();
-
   $('#changeImageForm').on('submit', saveEditedImage);
+  $('#deleteImage').on('click', deleteSelectedImage);
 
   window.addEventListener("hashchange", onURLChange);
 

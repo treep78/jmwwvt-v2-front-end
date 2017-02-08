@@ -12,6 +12,16 @@ const editImage = (data) =>
     }
   });
 
+  const deleteImage = () =>
+    $.ajax({
+      url: config.host+'/images/'+store.currentImage.id,
+      method: 'DELETE',
+      headers: {
+        Authorization: 'Token token='+store.user.token
+      },
+    });
+
 module.exports = {
   editImage,
+  deleteImage,
 };

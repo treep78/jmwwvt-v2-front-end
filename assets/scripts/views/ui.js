@@ -47,7 +47,12 @@ const editImageSuccess = function() {
   console.log('image edited');
 }
 
+const deleteImageSuccess = function() {
+  console.log('image deleted');
+}
+
 module.exports = {
   displayImages,
   editImageSuccess,
+  deleteImageSuccess,
 };
