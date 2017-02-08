@@ -34,7 +34,7 @@ const changePasswordSuccess = function(data)
 
 const signOutSuccess = function()
 {
-  store.user = null;
+  store.user = undefined;
   $('#messages').text('User signed out!');
   $('#sign-in-button').html('<button type="button" class="btn btn-primary btn-lg" data-toggle="modal"data-target="#sign-in-modal">Sign In</button>');
   $('#sign-up-button').html('<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sign-up-modal">Sign Up</button>');

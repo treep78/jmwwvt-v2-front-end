@@ -5,6 +5,7 @@ const store = require('../store.js');
 const api = require('../portfolio/api.js');
 const ui = require('../portfolio/ui.js');
 const viewUi = require('./ui.js');
+const viewApi = require('./api.js');
 const config = require('../config.js');
 
 const onURLChange = function (event) {
@@ -53,7 +54,10 @@ const onURLChange = function (event) {
 const saveEditedImage = function(event) {
   let data = getFormFields(this);
   event.preventDefault();
-  console.log('gotHere');
+  console.log(data);
+  viewApi.editImage(data)
+    .then(viewUi.editImageSuccess)
+    .catch(ui.failure);
 };
 
 const addHandlers = () => {
@@ -85,7 +89,8 @@ const addHandlers = () => {
               '<textarea type="text" name="image[description]" class="text-box">'+
               store.portfolioImages[image].description+
               '</textarea>'+
-              '<button type="submit" class="btn btn-xs btn-default">Save</button>';
+              '<button type="submit" class="btn btn-xs btn-default">Save</button>'+
+              '<input type="hidden" value="'+store.portfolioImages[image].id+'" name="image[id]" />';
               $('#imageDeailsModalBody').empty();
               $('#changeImageForm').empty();
               $('#changeImageForm').append(content);
