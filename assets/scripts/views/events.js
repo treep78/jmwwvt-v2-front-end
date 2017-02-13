@@ -5,7 +5,6 @@ const store = require('../store.js');
 const api = require('../portfolio/api.js');
 const ui = require('../portfolio/ui.js');
 const viewUi = require('./ui.js');
-const viewApi = require('./api.js');
 const config = require('../config.js');
 
 const onURLChange = function (event) {
@@ -50,22 +49,6 @@ const onURLChange = function (event) {
   $(oldView).hide();
   $(newView).show();
 };
-
-const saveEditedImage = function(event) {
-  let data = getFormFields(this);
-  event.preventDefault();
-  console.log(data);
-  viewApi.editImage(data)
-    .then(viewUi.editImageSuccess)
-    .catch(ui.failure);
-};
-
-const deleteSelectedImage = function() {
-  event.preventDefault();
-  viewApi.deleteImage()
-    .then(viewUi.deleteImageSuccess)
-    .catch(ui.failure);
-}
 
 const addHandlers = () => {
 
@@ -120,9 +103,6 @@ const addHandlers = () => {
     }
   });
 
-  $('#changeImageForm').on('submit', saveEditedImage);
-  $('#deleteImage').on('click', deleteSelectedImage);
-
   window.addEventListener("hashchange", onURLChange);
 
   // hide all views by default
@@ -164,5 +144,4 @@ const addHandlers = () => {
 
 module.exports = {
   addHandlers,
-  saveEditedImage,
 };

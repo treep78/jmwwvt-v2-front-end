@@ -2,6 +2,8 @@
 
 const store = require('../store.js');
 const events = require('./events.js');
+const ui = require('../portfolio/ui.js');
+const api = require('../portfolio/api.js');
 
 const doSomething = function(event) {
   let data = getFormFields(this);
@@ -11,6 +13,7 @@ const doSomething = function(event) {
 
 // this function is called to display portfolio images
 const displayImages = function() {
+  console.log('display images');
   let filter = 'none';
   let view = window.location.href;
   for(let i = 0; i < view.length; i++) {
@@ -43,16 +46,6 @@ const displayImages = function() {
   $('#portfolioImages').append(content);
 };
 
-const editImageSuccess = function() {
-  console.log('image edited');
-}
-
-const deleteImageSuccess = function() {
-  console.log('image deleted');
-}
-
 module.exports = {
   displayImages,
-  editImageSuccess,
-  deleteImageSuccess,
 };
