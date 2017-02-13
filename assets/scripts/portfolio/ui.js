@@ -4,7 +4,6 @@ const store = require('../store.js');
 const events = require('./events.js');
 const api = require('./api.js');
 
-
 const refreshImages = function() {
   console.log('refresh images');
   let filter = 'none';
@@ -68,7 +67,7 @@ const getImagesSuccess = function(data) {
   store.categories = categories;
   $('#categories').empty();
   $('#categories').append(content);
-}
+};
 
 const editImageSuccess = function(data) {
   let images = store.portfolioImages;
@@ -79,7 +78,7 @@ const editImageSuccess = function(data) {
     }
   }
   $('#imageDetailsModal').modal('hide');
-}
+};
 
 const deleteImageSuccess = function() {
   console.log('image deleted');
@@ -90,7 +89,7 @@ const deleteImageSuccess = function() {
     }
   }
   refreshImages();
-}
+};
 
 const failure = (error) => {
   console.error(error);
@@ -103,5 +102,5 @@ module.exports = {
   newImageSuccess,
   getImagesSuccess,
   editImageSuccess,
-  deleteImageSuccess,
+  //deleteImageSuccess,
 };
