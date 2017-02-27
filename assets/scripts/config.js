@@ -2,7 +2,7 @@
 
 const config =
 {
-    host: 'http://localhost:4741',
+    host: 'https://quiet-woodland-25772.herokuapp.com',
     local: 'http://localhost:7165'
 };
 
