@@ -18,7 +18,7 @@ const onNewImage = function (event) {
         if(ext === 'png' || ext === 'jpg') {
           success=true;
           api.createNewImage(data)
-            .then(ui.newImageSuccess)
+            .then(ui.newImageSuccess(data))
             .catch(ui.failure);
           break;
         }

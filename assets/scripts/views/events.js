@@ -53,7 +53,7 @@ const onURLChange = function (event) {
 const addHandlers = () => {
 
   $(document).on('click', '.portfolioImage', function(){
-    store.activeImage = this.id;
+    //store.activeImage = this.id;
     $('#imageDetailsModal').modal('show');
     let modalImage = [];
     for(let image in store.portfolioImages){

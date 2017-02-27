@@ -1,51 +1,17 @@
 'use strict';
 
 const store = require('../store.js');
-const events = require('./events.js');
-const api = require('./api.js');
+const viewUi = require('../views/ui.js');
 
-const refreshImages = function() {
-  console.log('refresh images');
-  let filter = 'none';
-  let view = window.location.href;
-  for(let i = 0; i < view.length; i++) {
-    if(view[i] === '#') {
-      let tempView = '';
-      for(let j = i; j < view.length; j++) {
-        tempView += view[j];
-        if(view[j+1] === '/'){
-          let tempCat = '';
-          for(let k = j+2; k < view.length; k++) {
-            tempCat += view[k];
-          }
-          filter = tempCat;
-          break;
-        }
-      }
-    }
-  }
-  let images = store.portfolioImages;
-  let content = '';
-  for(let image in images) {
-    // html template for images
-    if(images[image].category === filter || filter === 'none') {
-      let html = '<img src="'+images[image].link+'" alt="'+images[image].title+'" class="portfolioImage" id="'+images[image].id+'">'+
-      '</img>';
-      content += html;
-    }
-  }
-  $('#portfolioImages').empty();
-  $('#portfolioImages').append(content);
-};
 
 const success = function(data) {
   $('#messages').text('success');
 };
 
 const newImageSuccess = function(data) {
-  //store.portfolioImages += data.image;
-  //viewUi.displayImages();
-  console.log('asfa');
+  store.portfolioImages.push(data.image);
+  viewUi.displayImages();
+  $('#newImageModal').modal('hide');
 };
 
 const getImagesSuccess = function(data) {
@@ -74,7 +40,7 @@ const editImageSuccess = function(data) {
   for(let image in images) {
     if(images[image].id === data.image.id){
       images[image] = data.image;
-      refreshImages();
+      viewUi.displayImages();
     }
   }
   $('#imageDetailsModal').modal('hide');
@@ -88,7 +54,7 @@ const deleteImageSuccess = function() {
       delete store.portfolioImages[image];
     }
   }
-  refreshImages();
+  viewUi.displayImages();
 };
 
 const failure = (error) => {
@@ -102,5 +68,5 @@ module.exports = {
   newImageSuccess,
   getImagesSuccess,
   editImageSuccess,
-  //deleteImageSuccess,
+  deleteImageSuccess,
 };
