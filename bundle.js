@@ -216,7 +216,7 @@ webpackJsonp([0],[
 
 	var config = {
 	    host: 'https://quiet-woodland-25772.herokuapp.com',
-	    local: 'http://localhost:7165'
+	    local: 'https://treep78.github.io/jmwwvt-v2-front-end'
 	};
 
 	module.exports = config;
