@@ -109,6 +109,7 @@ const addHandlers = () => {
   $('#portfolio').hide();
   $('#contact').hide();
   $('#about').hide();
+  $('#newImageButton').hide();
 
   // show active view on page load
   let view = window.location.href;
