@@ -2,8 +2,8 @@
 
 const config =
 {
-    host: 'http://localhost:4741',
-    local: 'http://localhost:7165'
+    host: 'https://quiet-woodland-25772.herokuapp.com',
+    local: 'https://treep78.github.io/jmwwvt-v2-front-end'
 };
 
 module.exports = config;
