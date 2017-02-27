@@ -24,6 +24,7 @@ const signInSuccess = function(data)
   $('#sign-in-button').html("<form id='sign-out'><input type='submit' name='submit' value='Sign Out!' class='btn btn-primary btn-lg'></form>");
   $('#sign-up-button').html('<button type="button" class="btn btn-primary btn-lg" data-toggle="modal"data-target="#change-password-modal">Change Password</button>');
   $('#account-menu').text(store.user.email.split('@')[0]+"'s Account");
+  $('#newImageButton').show();
 };
 
 const changePasswordSuccess = function(data)
@@ -39,7 +40,7 @@ const signOutSuccess = function()
   $('#sign-in-button').html('<button type="button" class="btn btn-primary btn-lg" data-toggle="modal"data-target="#sign-in-modal">Sign In</button>');
   $('#sign-up-button').html('<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sign-up-modal">Sign Up</button>');
   $('#account-menu').text('Sign up/in');
-  $('#new-game-buttons').hide();
+  $('#newImageButton').hide();
 }
 
 const failure = (error) => {
