@@ -1,37 +1,52 @@
-https://treep78.github.io/game-project/
+# Capstone Project Front-End Readme
 
-Technologies Used:
-Git Hub
-Atom
-Node
-Terminal
-Chrome and Chrome Dev-tools
-Rails
-Grunt
+- Deployed Back-end: https://quiet-woodland-25772.herokuapp.com
+- Deployed Front-end: https://treep78.github.io/jmwwvt-v2-front-end/
+- Back-end Repo: https://github.com/treep78/jmwwvt-v2-back-end
+- Front-end Repo: https://github.com/treep78/jmwwvt-v2-front-end
 
-Planning:
-I started by planning out the different files I would need and how they would be organized in the project folder. When I started the project I tackled issues in the following order
-1. Basic html
-2. Basic css
-3. authentication
-4. scss and bootstrap
-5. game logic
-6. game logic backend communication
-7. clean-up
+# Front-end Summary
 
-Future Improvements:
-I have a few occasional issues with ajax's asyncronous functions that I would like to resolve if I had the time. I would also like to have spent more time on my aps' appearence. Multiplayer would have been interesting to implement, but I simply didn't feel I had the time.
+This front-end application is designed as a web-site for a small company to have a hom/about page, a portfolio of work that can be edited from the front end.
 
-User Stories:
+# Technologies Utilized:
 
-1. A new player can register
-2. Players X log in
-3. Players X can log out
-4. A new game can be started
-5. Previous games can be loaded
-6. Winner is displayed
-7. Player's can see play statistics
+- Node.js
+- Express
+- MongoDB
+- Mongoose
+- Javascript
+- Json
+- Curl
+- Heroku
+- Git
+- mLab
 
-Origonal page wireframe:
+# Database Collections:
 
-Image Link: https://docs.google.com/drawings/d/1DtlLpiFm8HCxxATu585yOrGfXNkjvZPy5eH5197B_XU/pub?w=960&h=720
+- /portfolio_images
+
+# Routes
+
+// standards RESTful routes
+.resources('portfolio_images')
+.resources('categories')
+
+// users of the app have special requirements
+.post('/sign-up', 'users#signup')
+.post('/sign-in', 'users#signin')
+.delete('/sign-out/:id', 'users#signout')
+.patch('/change-password/:id', 'users#changepw')
+.resources('users', { only: ['index', 'show'] })
+
+# User Stories
+
+- A user can sign-up
+- A user can sign-in
+- A user can change-password
+- A user can sign-out
+- Anyone can view products
+- A user can add a database entry called a portfolio_image with a category, title, description, image link
+- A user can view portfolio_images
+- A user can change portfolio_images
+- A user can remove portfolio_image
